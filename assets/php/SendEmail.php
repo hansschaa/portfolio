@@ -1,19 +1,12 @@
 <?php
 
-if(isset($_POST['submit'])){
-    $msg = 'Name: ' .$_POST['name'] ."\n"
-        .'Email: ' .$_POST['email'] ."\n"
-        .'Message: ' .$_POST['message'];
+// the message
+$msg = "First line of text\nSecond line of text";
 
- $go =   mail("hansschaadev@gmail.com", $subject,  $msg, $headers);
+// use wordwrap() if lines are longer than 70 characters
+$msg = wordwrap($msg,70);
 
+// send email
+mail("hansschaadev@gmail.com","My subject",$msg);
 
-   if(!$go) {   
-       echo "Something went wrong.";// error
-      } else {
-        echo "Message was send";// correct
-
-         }
-
-} 
 ?>

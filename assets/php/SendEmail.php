@@ -1,10 +1,19 @@
 <?php
-$para      = 'hansschaadev@gmail.com';
-$titulo    = 'El título';
-$mensaje   = 'Hola';
-$cabeceras = 'From: webmaster@example.com' . "\r\n" .
-    'Reply-To: webmaster@example.com' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
 
-mail($para, $titulo, $mensaje, $cabeceras);
+if(isset($_POST['submit'])){
+    $msg = 'Name: ' .$_POST['name'] ."\n"
+        .'Email: ' .$_POST['email'] ."\n"
+        .'Message: ' .$_POST['message'];
+
+ $go =   mail("hansschaadev@gmail.com", $subject,  $msg, $headers);
+
+
+   if(!$go) {   
+       echo "Something went wrong.";// error
+      } else {
+        echo "Message was send";// correct
+
+         }
+
+} 
 ?>
